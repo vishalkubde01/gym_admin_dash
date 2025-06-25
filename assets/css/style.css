@@ -106,6 +106,19 @@
 /*-------------------------------------------------------------------*/
 /* === Import template variables === */
 /*-------------------------------------------------------------------*/
+
+/* Dark mode CSS */
+
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+/* You may need to darken other specific components */
+.navbar, .sidebar, .card, .dropdown-menu {
+  background-color: #1f1f1f !important;
+  color: #e0e0e0 !important;
+}
 /* === SCSS Compass Functions === */
 @-moz-keyframes flash {
   0% {
