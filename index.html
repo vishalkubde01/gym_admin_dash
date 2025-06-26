@@ -368,6 +368,58 @@
     <!-- endinject -->
     <!-- Custom js for this page -->
     <script src="assets/js/dashboard.js"></script>
+
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('visit-sale-chart').getContext('2d');
+
+  // Sample datasets for monthly and yearly revenue
+  const monthlyData = {
+    labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG'],
+    datasets: [{
+      label: 'Monthly Revenue',
+      data: [120, 150, 80, 130, 170, 200, 140, 160],
+      backgroundColor: 'rgba(54, 162, 235, 0.7)'
+    }]
+  };
+
+  const yearlyData = {
+    labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
+    datasets: [{
+      label: 'Yearly Revenue',
+      data: [1200, 1350, 1100, 1500, 1800, 1700],
+      backgroundColor: 'rgba(255, 159, 64, 0.7)'
+    }]
+  };
+
+  // Initialize chart
+  let revenueChart = new Chart(ctx, {
+    type: 'bar',
+    data: monthlyData,
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+  // Event listener for slicer
+  document.getElementById('revenue-selector').addEventListener('change', function () {
+    const selected = this.value;
+
+    if (selected === 'monthly') {
+      revenueChart.data = monthlyData;
+    } else {
+      revenueChart.data = yearlyData;
+    }
+
+    revenueChart.update();
+  });
+</script>
+
     <!-- End custom js for this page -->
   </body>
 </html>
