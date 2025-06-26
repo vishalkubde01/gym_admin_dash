@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>View and Manage Plans</title>
+  <title>Olympus</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="assets/vendors/ti-icons/css/themify-icons.css">
@@ -165,20 +165,11 @@
         </ul>
       </nav>
       <!-- partial -->
-           
-      <!-- partial:partials/_footer.html -->
-          <footer class="footer">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">&copy; 2025 Olympus Gym - All
-                rights reserved.</span>
-              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Software Developed & Managed By
-                <a href="https://kavyainfoweb.com/" target="_blank">Kavya Infoweb Pvt. Ltd.</a></span>
-            </div>
-          </footer>
-          <!-- partial -->
-        </div>
-        <!-- main-panel ends -->
-      </div>
+
+      
+     
+    
+
       <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
@@ -198,9 +189,65 @@
     <!-- endinject -->
     <!-- Custom js for this page -->
     <script src="assets/js/dashboard.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      const ctx = document.getElementById('visit-sale-chart').getContext('2d');
 
+      // Monthly revenue dataset (example values)
+      const monthlyData = {
+        labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG'],
+        datasets: [{
+          label: 'Monthly Revenue',
+          data: [120, 150, 80, 130, 170, 200, 140, 160],
+          backgroundColor: '#2ec8f5'  // Sky blue
+        }]
+      };
+
+      // Yearly revenue dataset (example values)
+      const yearlyData = {
+        labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
+        datasets: [{
+          label: 'Yearly Revenue',
+          data: [1200, 1350, 1100, 1500, 1800, 1700],
+          backgroundColor: '#fbb58c'  // Light orange
+        }]
+      };
+
+      // Initialize Chart.js
+      let revenueChart = new Chart(ctx, {
+        type: 'bar',
+        data: monthlyData,
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+
+      // Tab event handling
+      document.getElementById('monthly-btn').addEventListener('click', () => switchTo('monthly'));
+      document.getElementById('yearly-btn').addEventListener('click', () => switchTo('yearly'));
+
+      function switchTo(mode) {
+        if (mode === 'monthly') {
+          revenueChart.data = monthlyData;
+          document.getElementById('monthly-btn').classList.add('btn-primary');
+          document.getElementById('monthly-btn').classList.remove('btn-outline-primary');
+          document.getElementById('yearly-btn').classList.remove('btn-primary');
+          document.getElementById('yearly-btn').classList.add('btn-outline-primary');
+        } else {
+          revenueChart.data = yearlyData;
+          document.getElementById('yearly-btn').classList.add('btn-primary');
+          document.getElementById('yearly-btn').classList.remove('btn-outline-primary');
+          document.getElementById('monthly-btn').classList.remove('btn-primary');
+          document.getElementById('monthly-btn').classList.add('btn-outline-primary');
+        }
+        revenueChart.update();
+      }
+    </script>
     <!-- End custom js for this page -->
 </body>
 
