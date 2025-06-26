@@ -1,178 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <style>
-      @media (max-width: 767.98px) {
-        #successMessage {
-          font-size: 16px !important;
-          padding: 16px !important;
-        }
-      }
-    </style>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Purple Admin</title>
-    <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css" />
-    <link rel="stylesheet" href="../../assets/vendors/ti-icons/css/themify-icons.css" />
-    <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css" />
-    <link rel="stylesheet" href="../../assets/vendors/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="../../assets/css/style.css" />
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../assets/vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="../../assets/vendors/font-awesome/css/font-awesome.min.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End Plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <!-- End layout styles -->
     <link rel="shortcut icon" href="../../assets/images/favicon.png" />
   </head>
   <body>
+    
     <div class="container-scroller">
-      <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
+ <!-- partial:partials/_navbar.html -->
+    <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
           <a class="navbar-brand brand-logo" href="../../index.html"><img src="../../assets/images/logo.svg" alt="logo" /></a>
           <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../assets/images/logo-mini.svg" alt="logo" /></a>
-        </div>
-        <div class="navbar-menu-wrapper d-flex align-items-stretch">
-          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-            <span class="mdi mdi-menu"></span>
-          </button>
-          <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item nav-profile dropdown"></li>
-            <li class="nav-item dropdown"></li>
-            <li class="nav-item dropdown"></li>
-            <li class="nav-item d-none d-lg-block full-screen-link">
-              <a class="nav-link">
-                <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
-              </a>
-            </li>
-          </ul>
-          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-            <span class="mdi mdi-menu"></span>
-          </button>
-        </div>
+        </div> 
+      <div class="navbar-menu-wrapper d-flex align-items-stretch">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <span class="mdi mdi-menu"></span>
+        </button>
+
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item nav-profile dropdown">
+
+          </li>
+          <li class="nav-item dropdown">
+            <!-- Additional dropdown -->
+          </li>
+
+          <li class="nav-item dropdown">
+            <!-- Additional dropdown -->
+          </li>
+
+          <li class="nav-item nav-logout d-none d-lg-block">
+            <!-- Logout link -->
+          </li>
+          <!-- ⛶ Fullscreen Button -->
+          <li class="nav-item d-none d-lg-block full-screen-link">
+            <a class="nav-link" href="#">
+              <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
+            </a>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+          data-toggle="offcanvas">
+          <span class="mdi mdi-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item nav-profile bg-dark">
+
+            <!--               <a href="#" class="nav-link">
+               <div class="nav-profile-image"> 
+                 <img src="https://kavyainfoweb.com/wp-content/uploads/2025/05/Kavya-768x430.png" alt="profile" /> 
+                 <span class="login-status online"></span> 
+             </div>  
+                <div class="nav-profile-text d-flex flex-column" style="margin-right: -15px;">
+                     <span class="font-weight mb-2" style="color:white;font-size:15px;text-align:center">Kavya Infoweb Pvt Ltd</span>
+                </div>
+
+              </a> -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <span class="menu-title" style="color:#301934;font-weight:bold">Dashboard</span>
+              <i class="mdi mdi-home menu-icon" style="color:#301934"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
+              aria-controls="ui-basic">
+              <span class="menu-title" style="color:#301934;font-weight:bold">Membership Plans</span>
+              <i class="menu" style="color:#301934"></i>
+              <i class="mdi mdi-folder-key menu-icon" style="color:#301934"></i>
+            </a>
+
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/buttons.html" style="color:#301934">
+                    <i class="mdi mdi-plus-box me-2" style="color:#301934;font-weight:bold"></i> Add New
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/dropdowns.html" style="color:#301934">
+                    <i class="mdi mdi-eye-settings me-2" style="color:#301934;font-weight:bold"></i> View and Manage
+                    Plans
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#icons" aria-expanded="false" aria-controls="icons">
+              <span class="menu-title" style="color:#301934; font-weight:bold">Add Member</span>
+              <i class="mdi mdi-contacts menu-icon" style="color:#301934"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
+              <span class="menu-title" style="color:#301934;font-weight:bold">Manage Member</span>
+              <i class="mdi mdi-account-group menu-icon" style="color:#301934"></i>
+            </a>
+            <div class="collapse" id="icons">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/icons/font-awesome.html" style="color:#301934">
+                    <i class="mdi mdi-autorenew menu-icon me-2" style="color:#301934; font-weight:bold"></i> Reneval
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#forms" aria-expanded="false" aria-controls="forms">
+              <span class="menu-title" style="color:#301934;font-weight:bold">Membership Report</span>
+              <i class="mdi mdi-account-multiple-check menu-icon" style="color:#301934"></i>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+              <span class="menu-title" style="color:#301934;font-weight:bold">Revenue Report</span>
+              <i class="mdi mdi-finance menu-icon" style="color:#301934"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+              <span class="menu-title" style="color:#301934;font-weight:bold">Settings</span>
+              <i class="mdi mdi-cog  menu-icon" style="color:#301934"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="logout.html">
+              <span class="menu-title" style="color:#301934;font-weight:bold">Logout</span>
+              <i class="mdi mdi-logout menu-icon" style="color:#301934;"></i>
+            </a>
+          </li>
+        </ul>
       </nav>
-      <div class="container-fluid page-body-wrapper">
-        <nav class="sidebar sidebar-offcanvas" id="sidebar">
-          <ul class="nav">
-            <li class="nav-item nav-profile">
-              <a href="#" class="nav-link">
-                <div class="nav-profile-image">
-                  <img src="../../assets/images/faces/face1.jpg" alt="profile" />
-                  <span class="login-status online"></span>
-                </div>
-                <div class="nav-profile-text d-flex flex-column">
-                  <span class="font-weight-bold mb-2">David Grey. H</span>
-                  <span class="text-secondary text-small">Project Manager</span>
-                </div>
-                <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../../index.html">
-                <span class="menu-title">Dashboard</span>
-                <i class="mdi mdi-home menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <span class="menu-title">Basic UI Elements</span>
-                <i class="menu-arrow"></i>
-                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
-              </a>
-              <div class="collapse" id="ui-basic">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item">
-                    <a class="nav-link" href="../../pages/ui-features/buttons.html">Buttons</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../../pages/ui-features/dropdowns.html">Dropdowns</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../../pages/ui-features/typography.html">Typography</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
-                <span class="menu-title">Icons</span>
-                <i class="mdi mdi-contacts menu-icon"></i>
-              </a>
-              <div class="collapse" id="icons">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item">
-                    <a class="nav-link" href="../../pages/icons/font-awesome.html">Font Awesome</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#forms" aria-expanded="false" aria-controls="forms">
-                <span class="menu-title">Forms</span>
-                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-              </a>
-              <div class="collapse" id="forms">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item">
-                    <a class="nav-link" href="../../pages/forms/basic_elements.html">Form Elements</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-                <span class="menu-title">Charts</span>
-                <i class="mdi mdi-chart-bar menu-icon"></i>
-              </a>
-              <div class="collapse" id="charts">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item">
-                    <a class="nav-link" href="../../pages/charts/chartjs.html">ChartJs</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
-                <span class="menu-title">Tables</span>
-                <i class="mdi mdi-table-large menu-icon"></i>
-              </a>
-              <div class="collapse" id="tables">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item">
-                    <a class="nav-link" href="../../pages/tables/basic-table.html">Basic table</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-                <span class="menu-title">User Pages</span>
-                <i class="menu-arrow"></i>
-                <i class="mdi mdi-lock menu-icon"></i>
-              </a>
-              <div class="collapse" id="auth">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item">
-                    <a class="nav-link" href="../../pages/samples/blank-page.html"> Blank Page </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../../pages/samples/login.html"> Login </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../../pages/samples/register.html"> Register </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../../pages/samples/error-404.html"> 404 </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../../pages/samples/error-500.html"> 500 </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../../docs/documentation.html" target="_blank">
-                <span class="menu-title">Documentation</span>
-                <i class="mdi mdi-file-document-box menu-icon"></i>
-              </a>
-            </li>
-          </ul>
-        </nav>
+      <!-- partial -->
+        <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="container mt-4 px-3 px-md-5">
@@ -258,78 +246,22 @@
                 </div>
               </div>
             </div>
-          </div>
-          <footer class="footer">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-muted text-center text-sm-left d-block d-sm-inline-block"
-                >&copy; 2025 Olympus Gym - All rights reserved.</span
-              >
-              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"
-                >Software Developed & Managed By
-                <a href="https://kavyainfoweb.com/" target="_blank">Kavya Infoweb Pvt. Ltd.</a></span
-              >
-            </div>
-          </footer>
-        </div>
-      </div>
+      
     </div>
+    <!-- container-scroller -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
     <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
     <script src="../../assets/js/off-canvas.js"></script>
     <script src="../../assets/js/misc.js"></script>
     <script src="../../assets/js/settings.js"></script>
     <script src="../../assets/js/todolist.js"></script>
     <script src="../../assets/js/jquery.cookie.js"></script>
-    <script>
-      const typeInput = document.getElementById("membershipType");
-      const amountInput = document.getElementById("amount");
-      const form = document.getElementById("membershipForm");
-      const successMessage = document.getElementById("successMessage");
-
-      const planPrices = {
-        "1 Month Plan": 500,
-        "2 Month Plan": 1000,
-        "3 Month Plan": 1300,
-        "6 Month Plan": 2000,
-        "1 Year Plan": 4000,
-        "Gym + Cardio 1 Month Plan": 800,
-        "Gym + Cardio 3 Month Plan": 2300,
-        "Gym + Cardio 6 Month Plan": 3800,
-        "Gym + Cardio 1 Year Plan": 7500,
-      };
-
-      typeInput.addEventListener("input", () => {
-        const selected = typeInput.value.trim();
-        amountInput.value = planPrices[selected] || "";
-      });
-
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        successMessage.style.display = "block";
-
-        const type = encodeURIComponent(typeInput.value.trim());
-        const amount = encodeURIComponent(amountInput.value.trim());
-        const newUrl =
-          window.location.origin + window.location.pathname + `?type=${type}&amount=${amount}`;
-        history.replaceState(null, "", newUrl);
-
-        // Clear the form fields for the next entry
-        typeInput.value = "";
-        amountInput.value = "";
-        typeInput.focus(); // Set focus to the first field
-
-        // Hide the success message after 3 seconds
-        setTimeout(() => {
-          successMessage.style.display = "none";
-        }, 3000);
-      });
-
-      window.addEventListener("DOMContentLoaded", () => {
-        const params = new URLSearchParams(window.location.search);
-        const type = params.get("type");
-        const amount = params.get("amount");
-        if (type) typeInput.value = decodeURIComponent(type);
-        if (amount) amountInput.value = decodeURIComponent(amount);
-      });
-    </script>
+    <!-- endinject -->
   </body>
 </html>
