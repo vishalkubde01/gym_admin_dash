@@ -1,39 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Add New Member</title>
-  <!-- plugins:css -->
-  <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="assets/vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
-  <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css">
-  <!-- endinject -->
-  <!-- Plugin css for this page -->
-  <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
-  <!-- End plugin css for this page -->
-  <!-- inject:css -->
-  <!-- endinject -->
-  <!-- Layout styles -->
-  <link rel="stylesheet" href="assets/css/style.css">
-  <!-- End layout styles -->
-  <link rel="shortcut icon" href="assets/images/favicon.png" />
-</head>
-
-<body>
-  <div class="container-scroller">
-
-    <!-- partial:partials/_navbar.html -->
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Purple Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../assets/vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="../../assets/vendors/font-awesome/css/font-awesome.min.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End Plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="../../assets/images/favicon.png" />
+  </head>
+  <body>
+    
+    <div class="container-scroller">
+ <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
-        <a class="navbar-brand brand-logo" href="index.html"><img src="assets/images/logo.svg" alt="logo" /></a>
-        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg"
-            alt="logo" /></a>
-      </div>
+     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
+          <a class="navbar-brand brand-logo" href="../../index.html"><img src="../../assets/images/logo.svg" alt="logo" /></a>
+          <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../assets/images/logo-mini.svg" alt="logo" /></a>
+        </div> 
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
           <span class="mdi mdi-menu"></span>
@@ -165,43 +160,108 @@
         </ul>
       </nav>
       <!-- partial -->
-           
-      <!-- partial:partials/_footer.html -->
-          <footer class="footer">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">&copy; 2025 Olympus Gym - All
-                rights reserved.</span>
-              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Software Developed & Managed By
-                <a href="https://kavyainfoweb.com/" target="_blank">Kavya Infoweb Pvt. Ltd.</a></span>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="container mt-4 px-3 px-md-5">
+              <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-3 gap-2">
+                <h3 class="mb-0">Add Membership Type</h3>
+                <nav>
+                  <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item">
+                      <a href="#" style="color: #a666fa">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active">Add Membership Type</li>
+                  </ol>
+                </nav>
+              </div>
+
+              <div
+                id="successMessage"
+                class="card px-3 py-2 mx-auto mb-3"
+                style="
+                  display: none;
+                  background-color: #28a745;
+                  color: #fff;
+                  font-weight: bold;
+                  border-radius: 10px;
+                  padding: 20px;
+                  text-align: center;
+                  font-size: 18px;
+                  width: 100%;
+                "
+              >
+                Membership Type Added Successfully!
+              </div>
+
+              <div class="card">
+                <div class="card-header text-white" style="background-color: #9b56f5">
+                  <i class="bi bi-card-checklist me-2"></i> Add New Membership Type Plan
+                </div>
+                <div class="card-body">
+                  <form id="membershipForm">
+                    <div class="row mb-3">
+                      <div class="col-md-6 mb-3 mb-md-0">
+                        <label class="form-label fw-semibold">Membership Type</label>
+                        <input
+                          list="membershipOptions"
+                          id="membershipType"
+                          type="text"
+                          class="form-control"
+                          placeholder="Enter or select membership type"
+                          required
+                        />
+                        <datalist id="membershipOptions">
+                          <option value="1 Month Plan" />
+                          <option value="2 Month Plan" />
+                          <option value="3 Month Plan" />
+                          <option value="6 Month Plan" />
+                          <option value="1 Year Plan" />
+                          <option value="Gym + Cardio 1 Month Plan" />
+                          <option value="Gym + Cardio 3 Month Plan" />
+                          <option value="Gym + Cardio 6 Month Plan" />
+                          <option value="Gym + Cardio 1 Year Plan" />
+                        </datalist>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label fw-semibold">Amount</label>
+                        <input
+                          type="text"
+                          id="amount"
+                          class="form-control"
+                          placeholder="Amount will auto-fill"
+                          required
+                          style="
+                            -webkit-appearance: none;
+                            -moz-appearance: textfield;
+                            appearance: none;
+                          "
+                        />
+                      </div>
+                    </div>
+                    <button type="submit" class="btn text-white w-100 w-md-auto" style="background-color: #b67eff">
+                      Submit
+                    </button>
+                  </form>
+                </div>
+              </div>
             </div>
-          </footer>
-          <!-- partial -->
-        </div>
-        <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
+      
+    </div>
+    <!-- container-scroller -->
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
-    <script src="assets/vendors/chart.js/chart.umd.js"></script>
-    <script src="assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
-    <script src="assets/js/off-canvas.js"></script>
-    <script src="assets/js/misc.js"></script>
-    <script src="assets/js/settings.js"></script>
-    <script src="assets/js/todolist.js"></script>
-    <script src="assets/js/jquery.cookie.js"></script>
+    <script src="../../assets/js/off-canvas.js"></script>
+    <script src="../../assets/js/misc.js"></script>
+    <script src="../../assets/js/settings.js"></script>
+    <script src="../../assets/js/todolist.js"></script>
+    <script src="../../assets/js/jquery.cookie.js"></script>
     <!-- endinject -->
-    <!-- Custom js for this page -->
-    <script src="assets/js/dashboard.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <!-- End custom js for this page -->
-</body>
-
+  </body>
 </html>
