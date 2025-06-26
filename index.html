@@ -21,6 +21,24 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="assets/images/favicon.png" />
+
+     <style>
+    .tab-button {
+      border-radius: 10px;
+      padding: 6px 16px;
+      font-weight: 500;
+    }
+    .tab-active {
+      background-color: #8f4de3;
+      color: white;
+      border: 2px solid #8f4de3;
+    }
+    .tab-inactive {
+      background-color: white;
+      color: #8f4de3;
+      border: 2px solid #8f4de3;
+    }
+  </style>
   </head>
   <body>
     <div class="container-scroller">
@@ -250,17 +268,28 @@
             <div class="row">
               <div class="col-md-7 grid-margin stretch-card">
              <div class="card m-4">
-                <div class="card-body">
-                    <div class="clearfix d-flex justify-content-between align-items-center">
-                      <h4 class="card-title">Visit And Sales Statistics</h4>
-                      <!-- Slicer Tabs -->
-                      <div id="revenue-tabs" class="btn-group" role="group">
-                        <button type="button" id="monthly-btn" class="btn btn-primary active">Monthly Revenue</button>
-                        <button type="button" id="yearly-btn" class="btn btn-outline-primary">Yearly Revenue</button>
-                  </div>
-              </div>
-              <canvas id="visit-sale-chart" class="mt-4"></canvas>
-            </div>
+                <div class="card m-4 p-3">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-center">
+        <h4 class="card-title fw-bold">Revenue Statistics</h4>
+        <div class="btn-group" role="group">
+          <button id="monthlyBtn" class="btn tab-button tab-active">Monthly Revenue</button>
+          <button id="yearlyBtn" class="btn tab-button tab-inactive">Yearly Revenue</button>
+        </div>
+      </div>
+
+      <!-- Monthly Revenue Chart -->
+      <div id="monthlyChartDiv" class="mt-4">
+        <canvas id="monthlyChart"></canvas>
+      </div>
+
+      <!-- Yearly Revenue Chart -->
+      <div id="yearlyChartDiv" class="mt-4" style="display: none;">
+        <canvas id="yearlyChart"></canvas>
+      </div>
+    </div>
+  </div>
+
         </div>
 
               </div>
@@ -370,64 +399,83 @@
     <!-- Custom js for this page -->
     <script src="assets/js/dashboard.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script>
-    const ctx = document.getElementById('visit-sale-chart').getContext('2d');
-
-    // Monthly revenue dataset (example values)
-    const monthlyData = {
-      labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG'],
-      datasets: [{
-        label: 'Monthly Revenue',
-        data: [120, 150, 80, 130, 170, 200, 140, 160],
-        backgroundColor: '#2ec8f5'  // Sky blue
-      }]
-    };
-
-    // Yearly revenue dataset (example values)
-    const yearlyData = {
-      labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
-      datasets: [{
-        label: 'Yearly Revenue',
-        data: [1200, 1350, 1100, 1500, 1800, 1700],
-        backgroundColor: '#fbb58c'  // Light orange
-      }]
-    };
-
-    // Initialize Chart.js
-    let revenueChart = new Chart(ctx, {
+ <script>
+    // Monthly Revenue Data
+    const monthlyCtx = document.getElementById('monthlyChart').getContext('2d');
+    const monthlyChart = new Chart(monthlyCtx, {
       type: 'bar',
-      data: monthlyData,
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        datasets: [{
+          label: 'Revenue',
+          data: [950000, 1180000, 1040000, 1150000, 1260000, 1220000, 1170000, 1260000, 1320000, 1290000, 1420000, 1580000],
+          backgroundColor: 'rgba(124, 166, 255, 0.5)',
+          borderRadius: 4
+        }]
+      },
       options: {
-        responsive: true,
         scales: {
           y: {
-            beginAtZero: true
+            ticks: {
+              callback: value => '₹' + value / 100000 + 'L'
+            }
           }
+        },
+        plugins: {
+          legend: { display: false }
         }
       }
     });
 
-    // Tab event handling
-    document.getElementById('monthly-btn').addEventListener('click', () => switchTo('monthly'));
-    document.getElementById('yearly-btn').addEventListener('click', () => switchTo('yearly'));
-
-    function switchTo(mode) {
-      if (mode === 'monthly') {
-        revenueChart.data = monthlyData;
-        document.getElementById('monthly-btn').classList.add('btn-primary');
-        document.getElementById('monthly-btn').classList.remove('btn-outline-primary');
-        document.getElementById('yearly-btn').classList.remove('btn-primary');
-        document.getElementById('yearly-btn').classList.add('btn-outline-primary');
-      } else {
-        revenueChart.data = yearlyData;
-        document.getElementById('yearly-btn').classList.add('btn-primary');
-        document.getElementById('yearly-btn').classList.remove('btn-outline-primary');
-        document.getElementById('monthly-btn').classList.remove('btn-primary');
-        document.getElementById('monthly-btn').classList.add('btn-outline-primary');
+    // Yearly Revenue Data
+    const yearlyCtx = document.getElementById('yearlyChart').getContext('2d');
+    const yearlyChart = new Chart(yearlyCtx, {
+      type: 'line',
+      data: {
+        labels: ['2020', '2021', '2022', '2023', '2024'],
+        datasets: [{
+          label: 'Revenue',
+          data: [7500000, 8700000, 9900000, 12200000, 15200000],
+          fill: true,
+          borderColor: '#1abc72',
+          backgroundColor: 'rgba(26, 188, 114, 0.2)',
+          tension: 0.4,
+          pointBackgroundColor: '#1abc72'
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            ticks: {
+              callback: value => '₹' + value / 100000 + 'L'
+            }
+          }
+        },
+        plugins: {
+          legend: { display: false }
+        }
       }
-      revenueChart.update();
-    }
-  </script>
-    <!-- End custom js for this page -->
+    });
+
+    // Toggle Logic
+    const monthlyBtn = document.getElementById('monthlyBtn');
+    const yearlyBtn = document.getElementById('yearlyBtn');
+    const monthlyDiv = document.getElementById('monthlyChartDiv');
+    const yearlyDiv = document.getElementById('yearlyChartDiv');
+
+    monthlyBtn.addEventListener('click', () => {
+      monthlyDiv.style.display = 'block';
+      yearlyDiv.style.display = 'none';
+      monthlyBtn.classList.replace('tab-inactive', 'tab-active');
+      yearlyBtn.classList.replace('tab-active', 'tab-inactive');
+    });
+
+    yearlyBtn.addEventListener('click', () => {
+      monthlyDiv.style.display = 'none';
+      yearlyDiv.style.display = 'block';
+      yearlyBtn.classList.replace('tab-inactive', 'tab-active');
+      monthlyBtn.classList.replace('tab-active', 'tab-inactive');
+    });
+  </script>    <!-- End custom js for this page -->
   </body>
 </html>
