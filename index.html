@@ -370,55 +370,88 @@
     <!-- Custom js for this page -->
     <script src="assets/js/dashboard.js"></script>
 
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
   const ctx = document.getElementById('visit-sale-chart').getContext('2d');
 
-  // Sample datasets for monthly and yearly revenue
   const monthlyData = {
     labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG'],
-    datasets: [{
-      label: 'Monthly Revenue',
-      data: [120, 150, 80, 130, 170, 200, 140, 160],
-      backgroundColor: 'rgba(54, 162, 235, 0.7)'
-    }]
+    datasets: [
+      {
+        label: 'CHN',
+        data: [60, 120, 40, 100, 80, 160, 110, 90],
+        backgroundColor: '#d08cf8'
+      },
+      {
+        label: 'USA',
+        data: [180, 40, 100, 130, 90, 160, 60, 110],
+        backgroundColor: '#2ec8f5'
+      },
+      {
+        label: 'UK',
+        data: [120, 100, 60, 40, 150, 50, 130, 140],
+        backgroundColor: '#fbb58c'
+      }
+    ]
   };
 
   const yearlyData = {
     labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
-    datasets: [{
-      label: 'Yearly Revenue',
-      data: [1200, 1350, 1100, 1500, 1800, 1700],
-      backgroundColor: 'rgba(255, 159, 64, 0.7)'
-    }]
+    datasets: [
+      {
+        label: 'CHN',
+        data: [900, 1100, 1000, 1200, 1400, 1500],
+        backgroundColor: '#d08cf8'
+      },
+      {
+        label: 'USA',
+        data: [1200, 1000, 1150, 1300, 1600, 1450],
+        backgroundColor: '#2ec8f5'
+      },
+      {
+        label: 'UK',
+        data: [950, 1050, 980, 1100, 1250, 1380],
+        backgroundColor: '#fbb58c'
+      }
+    ]
   };
 
-  // Initialize chart
   let revenueChart = new Chart(ctx, {
     type: 'bar',
     data: monthlyData,
     options: {
       responsive: true,
       scales: {
-        y: {
-          beginAtZero: true
-        }
+        y: { beginAtZero: true }
       }
     }
   });
 
-  // Event listener for slicer
-  document.getElementById('revenue-selector').addEventListener('change', function () {
-    const selected = this.value;
+  // Tab event handling
+  document.getElementById('monthly-btn').addEventListener('click', () => {
+    switchTo('monthly');
+  });
 
-    if (selected === 'monthly') {
+  document.getElementById('yearly-btn').addEventListener('click', () => {
+    switchTo('yearly');
+  });
+
+  function switchTo(mode) {
+    if (mode === 'monthly') {
       revenueChart.data = monthlyData;
+      document.getElementById('monthly-btn').classList.add('btn-primary');
+      document.getElementById('monthly-btn').classList.remove('btn-outline-primary');
+      document.getElementById('yearly-btn').classList.remove('btn-primary');
+      document.getElementById('yearly-btn').classList.add('btn-outline-primary');
     } else {
       revenueChart.data = yearlyData;
+      document.getElementById('yearly-btn').classList.add('btn-primary');
+      document.getElementById('yearly-btn').classList.remove('btn-outline-primary');
+      document.getElementById('monthly-btn').classList.remove('btn-primary');
+      document.getElementById('monthly-btn').classList.add('btn-outline-primary');
     }
-
     revenueChart.update();
-  });
+  }
 </script>
 
     <!-- End custom js for this page -->
