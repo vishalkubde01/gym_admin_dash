@@ -253,15 +253,16 @@
   <div class="card-body">
     <div class="clearfix d-flex justify-content-between align-items-center">
       <h4 class="card-title">Visit And Sales Statistics</h4>
-      <!-- Slicer dropdown -->
-      <select id="revenue-selector" class="form-select w-auto">
-        <option value="monthly">Monthly Revenue</option>
-        <option value="yearly">Yearly Revenue</option>
-      </select>
+      <!-- Slicer Tabs -->
+      <div id="revenue-tabs" class="btn-group" role="group">
+        <button type="button" id="monthly-btn" class="btn btn-primary active">Monthly Revenue</button>
+        <button type="button" id="yearly-btn" class="btn btn-outline-primary">Yearly Revenue</button>
+      </div>
     </div>
     <canvas id="visit-sale-chart" class="mt-4"></canvas>
   </div>
 </div>
+
               </div>
               <div class="col-md-5 grid-margin stretch-card">
                 <div class="card">
